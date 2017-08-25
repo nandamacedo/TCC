@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="geradordeplanilhas.controller.FXMLGeradorController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Tipo de Rede">
+            <items>
+              <MenuItem fx:id="menuItemMatrizUmModo" mnemonicParsing="false" onAction="#handleMenuItemMatrizUmModo" text="1 Modo" />
+                  <MenuItem fx:id="menuItemMatrizDoisModos" mnemonicParsing="false" onAction="#handleMenuItemMatrizDoisModos" text="2 Modos" />
+                  <MenuItem fx:id="menuItemSair" mnemonicParsing="false" onAction="#fecharTelaAction" text="Sair" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Pesquisa de Dados">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Ator" />
+                  <MenuItem mnemonicParsing="false" text="Filme" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="SQL">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Definir Consulta" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Tutorial de Consultas" />
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="anchorPanePrincipal" prefHeight="371.0" prefWidth="650.0" />
+   </children>
+</VBox>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPaneMatrizUmModo" prefHeight="371.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="geradordeplanilhas.controller.FXMLAnchorPaneMatrizUmModoController">
+ <children>
+      <HBox alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="44.0" prefWidth="649.0">
+         <children>
+            <Label text="REDE DE 1 MODO" />
+         </children>
+      </HBox>
+      <VBox layoutX="34.0" layoutY="56.0">
+         <children>
+            <Label prefHeight="28.0" prefWidth="97.0" text="Tipo de Rede" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <RadioButton fx:id="radioButtonAtorAtor" mnemonicParsing="false" text="Ator x Ator" />
+            <Region prefHeight="20.0" prefWidth="127.0" />
+            <RadioButton fx:id="radioButtonFilmeFilme" mnemonicParsing="false" text="Filme x Filme" />
+         </children>
+      </VBox>
+      <VBox layoutX="216.0" layoutY="61.0">
+         <children>
+            <HBox />
+            <Label prefHeight="20.0" prefWidth="114.0" text="Tipo de Leitura" />
+            <Region prefHeight="18.0" prefWidth="167.0" />
+            <RadioButton fx:id="radioButtonID" mnemonicParsing="false" text="ID" />
+            <Region prefHeight="20.0" prefWidth="167.0" />
+            <RadioButton fx:id="radioButtonNome" mnemonicParsing="false" text="Nome" />
+         </children>
+      </VBox>
+      <Separator layoutX="25.0" layoutY="167.0" prefHeight="0.0" prefWidth="586.0" />
+      <VBox layoutX="34.0" layoutY="171.0">
+         <children>
+            <Label prefHeight="22.0" prefWidth="91.0" text="Papeis" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxAtor" mnemonicParsing="false" text="Ator" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxProdExec" mnemonicParsing="false" text="Produçao Executiva" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxDFoto" mnemonicParsing="false" text="Direçao de Foto" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxDArte" mnemonicParsing="false" text="Direçao de Arte" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxEdicao" mnemonicParsing="false" text="Ediçao" />
+         </children>
+      </VBox>
+      <VBox layoutX="216.0" layoutY="181.0">
+         <children>
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <Region prefHeight="10.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxDiretor" mnemonicParsing="false" text="Diretor" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxRoteirista" mnemonicParsing="false" text="Roteirista" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxProdutora" mnemonicParsing="false" text="Produtora" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxDistribuidora" mnemonicParsing="false" text="Distribuidora" />
+            <Region prefHeight="13.0" prefWidth="127.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="375.0" layoutY="175.0">
+         <children>
+            <Label text="Ano" />
+            <Region prefHeight="22.0" prefWidth="193.0" />
+            <HBox>
+               <children>
+                  <TextField fx:id="textFieldAnoInicio" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" />
+                  <Label prefHeight="32.0" prefWidth="35.0" text="até" textAlignment="CENTER">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="textFieldAnoFim" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="495.0" layoutY="321.0" prefHeight="44.0" prefWidth="174.0">
+         <children>
+            <Button fx:id="buttonGerarMatriz" mnemonicParsing="false" onAction="#handleButtonGerarMatriz" prefHeight="25.0" prefWidth="108.0" text="Gerar Matriz" />
+         </children>
+      </HBox>
+      <VBox layoutX="372.0" layoutY="63.0" prefHeight="94.0" prefWidth="167.0">
+         <children>
+            <Label prefHeight="20.0" prefWidth="114.0" text="Perfil da Rede" />
+            <Region prefHeight="18.0" prefWidth="167.0" />
+            <CheckBox fx:id="checkBoxValorada" mnemonicParsing="false" text="Rede Valorada" />
+            <HBox />
+            <Region prefHeight="43.0" prefWidth="167.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

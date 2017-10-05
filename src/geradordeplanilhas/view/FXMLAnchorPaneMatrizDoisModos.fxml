@@ -19,7 +19,10 @@
          <children>
             <Label prefHeight="28.0" prefWidth="97.0" text="Tipo de Rede" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <RadioButton fx:id="radioButtonAtorFilme" mnemonicParsing="false" text="Ator x Filme" />
+            <RadioButton fx:id="radioButtonAtorFilme" mnemonicParsing="false" text="Ator x Filme">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tipoRedeDoisModos" />
+               </toggleGroup></RadioButton>
          </children>
       </VBox>
       <VBox layoutX="216.0" layoutY="61.0">
@@ -27,9 +30,12 @@
             <HBox />
             <Label prefHeight="20.0" prefWidth="89.0" text="Leitura" />
             <Region prefHeight="14.0" prefWidth="167.0" />
-            <RadioButton fx:id="radioButtonID" mnemonicParsing="false" text="ID" />
+            <RadioButton fx:id="radioButtonID" mnemonicParsing="false" text="ID">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tipoLeituraDoisModos" />
+               </toggleGroup></RadioButton>
             <Region prefHeight="13.0" prefWidth="167.0" />
-            <RadioButton fx:id="radioButtonNome" mnemonicParsing="false" text="Nome" />
+            <RadioButton fx:id="radioButtonNome" mnemonicParsing="false" text="Nome" toggleGroup="$tipoLeituraDoisModos" />
          </children>
       </VBox>
       <Separator layoutX="25.0" layoutY="167.0" prefHeight="0.0" prefWidth="586.0" />
@@ -92,7 +98,7 @@
       </HBox>
       <VBox layoutX="375.0" layoutY="93.0">
          <children>
-            <CheckBox fx:id="checkBoxValorada" mnemonicParsing="false" text="Rede Valorada" />
+            <CheckBox fx:id="checkBoxValorada" disable="true" mnemonicParsing="false" text="Rede Valorada" />
             <HBox />
             <Region prefHeight="26.0" prefWidth="167.0" />
          </children>

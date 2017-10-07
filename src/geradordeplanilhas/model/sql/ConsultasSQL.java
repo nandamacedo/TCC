@@ -91,5 +91,27 @@ public class ConsultasSQL {
         ResultSet resultadoVerificaFilmes = stmtVerificaFilmes.executeQuery();
         return resultadoVerificaFilmes;
     }
+    
+    public ResultSet ConsultaFilmes(String ator) throws SQLException {
+        String consultaFilmes = "select DISTINCT f.titulo, f.ano, f.salas, f.publico, f.renda, f.uf from redesocial.filmes f join redesocial.papel p on f.idfilme = p.idfilme join redesocial.atores a on a.idator = p.idator where\n"
+                + "a.nome like '%" + ator + "%'";
+        PreparedStatement stmtConsultaFilmes = connection.prepareStatement(consultaFilmes);
+        ResultSet resultadoConsultaFilmes = stmtConsultaFilmes.executeQuery();
+        return resultadoConsultaFilmes;
+    }
 
+     public ResultSet ConsultaAtores(String filme) throws SQLException {
+        String consultaAtores = "select a.nome, ps.papel, ps.sigla from redesocial.papel p join redesocial.filmes f on f.idfilme = p.idfilme \n" +
+"join redesocial.papeis ps on ps.idpapel = p.idpapel join redesocial.atores a on a.idator = p.idator where f.titulo like '%" + filme + "%'";
+        PreparedStatement stmtConsultaAtores = connection.prepareStatement(consultaAtores);
+        ResultSet resultadoConsultaAtores = stmtConsultaAtores.executeQuery();
+        return resultadoConsultaAtores;
+    }
+     
+     public ResultSet ConsultaDadosFilme(String filme) throws SQLException {
+        String consultaDadosFilme = "select titulo, ano, salas, publico, renda, uf from redesocial.filmes where titulo like '%" + filme + "%'";
+        PreparedStatement stmtConsultaDadosFilme = connection.prepareStatement(consultaDadosFilme);
+        ResultSet resultadoConsultaDadosFilme = stmtConsultaDadosFilme.executeQuery();
+        return resultadoConsultaDadosFilme;
+    }
 }

@@ -19,8 +19,9 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Pesquisa de Dados">
             <items>
-              <MenuItem mnemonicParsing="false" text="Ator" />
-                  <MenuItem mnemonicParsing="false" text="Filme" />
+              <MenuItem fx:id="menuItemAtor" mnemonicParsing="false" onAction="#handleMenuItemAtor" text="Filmes por Ator" />
+                  <MenuItem fx:id="menuItemFilme" mnemonicParsing="false" onAction="#handleMenuItemFilme" text="Atores por Filme" />
+                  <MenuItem fx:id="menuItemDadosFilme" mnemonicParsing="false" onAction="#handleMenuItemDadosFilme" text="Dados do Filme" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="SQL">

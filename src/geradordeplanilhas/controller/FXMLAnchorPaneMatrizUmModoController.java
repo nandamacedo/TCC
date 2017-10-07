@@ -5,6 +5,7 @@
  */
 package geradordeplanilhas.controller;
 
+import geradordeplanilhas.GeraMatriz;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="geradordeplanilhas.controller.FXMLAnchorPaneConsultaAtorController">
+     <children>
+      <HBox alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="44.0" prefWidth="649.0">
+         <children>
+            <Label text="EVENTOS POR ATOR" />
+         </children>
+      </HBox>
+      <Separator layoutX="36.0" layoutY="106.0" prefHeight="0.0" prefWidth="586.0" />
+      <HBox layoutX="26.0" layoutY="62.0" prefHeight="44.0" prefWidth="612.0">
+         <children>
+            <Label prefHeight="23.0" prefWidth="51.0" text="Nome:" />
+            <Region prefHeight="44.0" prefWidth="7.0" />
+            <TextField fx:id="textFieldNomeAtor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="418.0" />
+            <Region prefHeight="44.0" prefWidth="18.0" />
+            <Button fx:id="buttonConsultaAtor" mnemonicParsing="false" onAction="#handleButtonConsultaAtor" prefHeight="22.0" prefWidth="120.0" text="Pesquisar" />
+         </children>
+      </HBox>
+      <TableView fx:id="tableViewFilmes" layoutX="34.0" layoutY="126.0" prefHeight="217.0" prefWidth="586.0">
+        <columns>
+          <TableColumn fx:id="colFilme" prefWidth="248.0" text="Filme" />
+          <TableColumn fx:id="colAno" prefWidth="60.0" text="Ano" />
+            <TableColumn fx:id="colSalas" prefWidth="64.0" text="Salas" />
+            <TableColumn fx:id="colPublico" prefWidth="74.0" text="Público" />
+            <TableColumn fx:id="colRenda" prefWidth="79.0" text="Renda" />
+            <TableColumn fx:id="colUF" prefWidth="60.0" text="UF" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

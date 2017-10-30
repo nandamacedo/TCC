@@ -75,6 +75,20 @@ public class FXMLGeradorController implements Initializable {
         anchorPanePrincipal.getChildren().setAll(a);
 
     }
+    
+    @FXML
+    public void handleMenuItemEditarFilme() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/geradordeplanilhas/view/FXMLAnchorPaneEditarFilme.fxml"));
+        anchorPanePrincipal.getChildren().setAll(a);
+
+    }
+    
+    @FXML
+    public void handleMenuItemInserirFilme() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/geradordeplanilhas/view/FXMLAnchorPaneInserirFilme.fxml"));
+        anchorPanePrincipal.getChildren().setAll(a);
+
+    }
 
     @FXML
     public void fecharTelaAction() {

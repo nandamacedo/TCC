@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="geradordeplanilhas.controller.FXMLAnchorPaneEditarFilmeController">
+    <children>
+        <HBox alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="44.0" prefWidth="649.0">
+            <children>
+                <Label text="Editar Filme" />
+            </children>
+        </HBox>
+        <Separator layoutX="36.0" layoutY="106.0" prefHeight="3.0" prefWidth="724.0" />
+        <HBox layoutX="34.0" layoutY="62.0" prefHeight="44.0" prefWidth="724.0">
+            <children>
+                <Label prefHeight="23.0" prefWidth="51.0" text="Filme:" />
+                <Region prefHeight="44.0" prefWidth="16.0" />
+                <TextField fx:id="textFieldNomeFilme" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="517.0" />
+                <Region prefHeight="44.0" prefWidth="20.0" />
+                <Button fx:id="buttonConsultaFilme" mnemonicParsing="false" onAction="#handleButtonConsultaFilme" prefHeight="22.0" prefWidth="120.0" text="Pesquisar" />
+            </children>
+        </HBox>
+        <GridPane fx:id="gridPaneDadosFilme" layoutX="36.0" layoutY="120.0" prefHeight="301.0" prefWidth="724.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="67.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="283.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="325.0" minWidth="10.0" prefWidth="286.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Titulo" />
+                <Label text="Ano" GridPane.rowIndex="1" />
+                <Label text="Salas" GridPane.rowIndex="2" />
+                <Label text="Renda" GridPane.rowIndex="3" />
+                <Label text="Publico" GridPane.rowIndex="4" />
+                <Label text="UF" GridPane.rowIndex="5" />
+                <TextField fx:id="gTitulo" GridPane.columnIndex="1" />
+                <TextField fx:id="gAno" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="gSalas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="gRenda" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="gPublico" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="gUF" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label prefHeight="15.0" prefWidth="105.0" text="Ator 1" GridPane.columnIndex="2">
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </Label>
+                <Label text="Ator 2" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </Label>
+                <Label text="Ator 3" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </Label>
+                <Label text="Ator 4" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </Label>
+                <Label text="Roteirista" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </Label>
+                <Label text="Diretor" GridPane.rowIndex="6" />
+                <Label text="Produtor" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </Label>
+                <Label text="P. Exec" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="gDiretor" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <TextField fx:id="gAtor1" GridPane.columnIndex="3" />
+                <TextField fx:id="gAtor2" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <TextField fx:id="gAtor3" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <TextField fx:id="gAtor4" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                <TextField fx:id="gRoteirista" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                <TextField fx:id="gProdutor" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                <TextField fx:id="gPE" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                <Label text="D. Foto" GridPane.rowIndex="7" />
+                <TextField fx:id="gFoto" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <Label text="Ediçao" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="gEdicao" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                <Label text="D. Arte" GridPane.rowIndex="8" />
+                <TextField fx:id="gArte" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            </children>
+        </GridPane>
+        <HBox layoutX="490.0" layoutY="421.0" prefHeight="53.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="buttonSalvar" mnemonicParsing="false" onAction="#handleButtonSalvar" prefHeight="22.0" prefWidth="120.0" text="Salvar" />
+                <Region prefHeight="44.0" prefWidth="30.0" />
+                <Button fx:id="buttonCancelar" mnemonicParsing="false" onAction="#handleButtonCancelar" prefHeight="22.0" prefWidth="120.0" text="Cancelar" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

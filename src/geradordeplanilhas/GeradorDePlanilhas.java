@@ -5,6 +5,7 @@
  */
 package geradordeplanilhas;
 
+import java.io.File;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

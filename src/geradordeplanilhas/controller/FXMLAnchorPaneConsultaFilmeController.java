@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -39,7 +40,7 @@ public class FXMLAnchorPaneConsultaFilmeController implements Initializable {
     private TableColumn<Atores, String> colPapel;
     @FXML
     private TableColumn<Atores, String> colSigla;
-    
+
     private String filme;
     private ObservableList<Atores> data;
     ConsultasSQL query = new ConsultasSQL();
@@ -51,29 +52,34 @@ public class FXMLAnchorPaneConsultaFilmeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
+
     @FXML
-    public void preencheTableViewAtores(){
-    try {
+    public void preencheTableViewAtores() {
+        try {
             data = FXCollections.observableArrayList();
             filme = textFieldNomeFilme.getText();
             ResultSet rs = query.ConsultaAtores(filme);
 
             while (rs.next()) {
 
-                data.add(new Atores(rs.getString(1), rs.getString(2), rs.getString(3)));
+                data.add(new Atores(rs.getString(3), rs.getString(4), rs.getString(5)));
                 tableViewAtores.setItems(data);
 
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error on Building Data");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Erro ao preencher dados do filme.");
+
+            alert.showAndWait();
         }
-        
-        colAtor.setCellValueFactory(new PropertyValueFactory<> ("ator"));
-        colPapel.setCellValueFactory(new PropertyValueFactory<> ("papel"));
-        colSigla.setCellValueFactory(new PropertyValueFactory<> ("sigla"));
+
+        colAtor.setCellValueFactory(new PropertyValueFactory<>("ator"));
+        colPapel.setCellValueFactory(new PropertyValueFactory<>("papel"));
+        colSigla.setCellValueFactory(new PropertyValueFactory<>("sigla"));
 
         tableViewAtores.setItems(data);
     }

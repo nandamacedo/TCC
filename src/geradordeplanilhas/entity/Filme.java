@@ -33,6 +33,8 @@ public class Filme {
         this.renda = new SimpleDoubleProperty(renda);
         this.UF = new SimpleStringProperty(UF);
     }
+    
+
 
     public String getTitulo() {
         return titulo.get();

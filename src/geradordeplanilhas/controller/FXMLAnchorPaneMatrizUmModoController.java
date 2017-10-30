@@ -6,6 +6,7 @@
 package geradordeplanilhas.controller;
 
 import geradordeplanilhas.GeraMatriz;
+import geradordeplanilhas.entity.Data;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -67,16 +68,13 @@ public class FXMLAnchorPaneMatrizUmModoController implements Initializable {
     private CheckBox checkBoxRoteirista;
     @FXML
     private CheckBox checkBoxProdutora;
-    @FXML
-    private CheckBox checkBoxDistribuidora;
-
 
     private boolean BoxValorada = false;
     private String anoI;
     private String anoF;
     private int tipoRede; //Tipo 1 para Ator e Tipo 2 para Filme
     private int tipoLeitura; //Tipo 1 para ID e Tipo 2 para Nome-Sigla
-    private String papeis = ""; // Papeis selecionados para query
+    private String papeis; // Papeis selecionados para query
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -137,6 +135,7 @@ public class FXMLAnchorPaneMatrizUmModoController implements Initializable {
 
     @FXML
     public void handleCheckBoxes() {
+        papeis = "";
         if (checkBoxAtor.isSelected()) {
             papeis += "'A'" + ",";
         }
@@ -161,14 +160,11 @@ public class FXMLAnchorPaneMatrizUmModoController implements Initializable {
         if (checkBoxProdutora.isSelected()) {
             papeis += "'P'" + ",";
         }
-        if (checkBoxDistribuidora.isSelected()) {
-            papeis += "'DT'" + ",";
+        if (papeis.endsWith(",")) {
+            papeis = papeis.substring(0, papeis.length() - 1);
         }
-        if(papeis.endsWith(",")){
-            papeis = papeis.substring (0, papeis.length() - 1);
-        }
-        if(papeis.equals("")){
-            papeis = "'A', 'PE', 'F','DA','E','R','D', 'P', 'DT'";
+        if (papeis.equals("")) {
+            papeis = "'A', 'PE', 'F','DA','E','R','D', 'P'";
         }
     }
 
@@ -178,13 +174,18 @@ public class FXMLAnchorPaneMatrizUmModoController implements Initializable {
         handleToggleGroupTipoLeitura();
         handleCheckBoxes();
         handleTextFieldAnos();
+        Data data = new Data();
+
         if (tipoRede == 1) {
-            GeraMatriz rede = new GeraMatriz("Planilha Um Modo Atores.csv");
+
+            GeraMatriz rede = new GeraMatriz("/home/nanda/NetBeansProjects/GeradorDePlanilhas/Resultados/" + "1ModoAtores" + anoI + "-" + anoF + "-" + data.Data2String() + ".csv");
             rede.PreencheMatrizUmModo(tipoRede, tipoLeitura, BoxValorada, papeis, anoI, anoF);
 
         } else {
-            GeraMatriz rede = new GeraMatriz("Planilha Um Modo Filmes.csv");
+
+            GeraMatriz rede = new GeraMatriz("/home/nanda/NetBeansProjects/GeradorDePlanilhas/Resultados/" + "1ModoFilmes" + anoI + "-" + anoF + "-" + data.Data2String() + ".csv");
             rede.PreencheMatrizUmModo(tipoRede, tipoLeitura, BoxValorada, papeis, anoI, anoF);
+
         }
 
     }

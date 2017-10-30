@@ -43,29 +43,28 @@
          <children>
             <Label prefHeight="22.0" prefWidth="91.0" text="Papeis" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxAtor" mnemonicParsing="false" text="Ator" />
+            <CheckBox fx:id="checkBoxAtor" mnemonicParsing="false" selected="true" text="Ator" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxProdExec" mnemonicParsing="false" text="Produçao Executiva" />
+            <CheckBox fx:id="checkBoxProdExec" mnemonicParsing="false" selected="true" text="Produçao Executiva" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxDFoto" mnemonicParsing="false" text="Direçao de Foto" />
+            <CheckBox fx:id="checkBoxDFoto" mnemonicParsing="false" selected="true" text="Direçao de Foto" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxDArte" mnemonicParsing="false" text="Direçao de Arte" />
+            <CheckBox fx:id="checkBoxDArte" mnemonicParsing="false" selected="true" text="Direçao de Arte" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxEdicao" mnemonicParsing="false" text="Ediçao" />
          </children>
       </VBox>
-      <VBox layoutX="216.0" layoutY="181.0">
+      <VBox layoutX="216.0" layoutY="173.0" prefHeight="159.0" prefWidth="127.0">
          <children>
             <Region prefHeight="13.0" prefWidth="127.0" />
             <Region prefHeight="19.0" prefWidth="108.0" />
-            <CheckBox fx:id="checkBoxDiretor" mnemonicParsing="false" text="Diretor" />
+            <CheckBox fx:id="checkBoxDiretor" mnemonicParsing="false" selected="true" text="Diretor" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxRoteirista" mnemonicParsing="false" text="Roteirista" />
+            <CheckBox fx:id="checkBoxRoteirista" mnemonicParsing="false" selected="true" text="Roteirista" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxProdutora" mnemonicParsing="false" text="Produtora" />
+            <CheckBox fx:id="checkBoxProdutora" mnemonicParsing="false" selected="true" text="Produtora" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxDistribuidora" mnemonicParsing="false" text="Distribuidora" />
-            <Region prefHeight="13.0" prefWidth="127.0" />
+            <CheckBox fx:id="checkBoxEdicao" mnemonicParsing="false" selected="true" text="Ediçao" />
+
          </children>
       </VBox>
       <VBox layoutX="375.0" layoutY="175.0">
@@ -74,7 +73,7 @@
             <Region prefHeight="22.0" prefWidth="193.0" />
             <HBox>
                <children>
-                  <TextField fx:id="textFieldAnoInicio" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" />
+                  <TextField fx:id="textFieldAnoInicio" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="1995" />
                   <Label prefHeight="32.0" prefWidth="35.0" text="até" textAlignment="CENTER">
                      <font>
                         <Font size="12.0" />
@@ -86,7 +85,7 @@
                         <Insets left="5.0" right="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="textFieldAnoFim" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" />
+                  <TextField fx:id="textFieldAnoFim" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="2013" />
                </children>
             </HBox>
          </children>
@@ -98,9 +97,7 @@
       </HBox>
       <VBox layoutX="375.0" layoutY="93.0">
          <children>
-            <CheckBox fx:id="checkBoxValorada" disable="true" mnemonicParsing="false" text="Rede Valorada" />
             <HBox />
-            <Region prefHeight="26.0" prefWidth="167.0" />
          </children>
       </VBox>
    </children>

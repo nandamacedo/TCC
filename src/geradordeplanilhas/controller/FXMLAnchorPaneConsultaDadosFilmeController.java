@@ -68,14 +68,14 @@ public class FXMLAnchorPaneConsultaDadosFilmeController implements Initializable
 
             while (rs.next()) {
 
-                data.add(new Filme(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDouble(5), rs.getString(6)));
+                data.add(new Filme(rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getDouble(6), rs.getString(7)));
                 tableViewDadosFilme.setItems(data);
 
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error on Building Data");
+            System.out.println("Erro ao recuperar filme.");
         }
         
         colFilme.setCellValueFactory(new PropertyValueFactory<> ("titulo"));

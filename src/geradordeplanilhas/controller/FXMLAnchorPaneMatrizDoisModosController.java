@@ -6,6 +6,7 @@
 package geradordeplanilhas.controller;
 
 import geradordeplanilhas.GeraMatriz;
+import geradordeplanilhas.entity.Data;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -26,7 +27,6 @@ import javafx.scene.layout.AnchorPane;
  */
 public class FXMLAnchorPaneMatrizDoisModosController implements Initializable {
 
-
     @FXML
     private AnchorPane anchorPaneMatrizDoisModos;
     @FXML
@@ -46,8 +46,6 @@ public class FXMLAnchorPaneMatrizDoisModosController implements Initializable {
     @FXML
     private ToggleGroup tipoLeituraDoisModos;
     @FXML
-    private CheckBox checkBoxValorada;
-    @FXML
     private CheckBox checkBoxAtor;
     @FXML
     private CheckBox checkBoxProdExec;
@@ -63,24 +61,18 @@ public class FXMLAnchorPaneMatrizDoisModosController implements Initializable {
     private CheckBox checkBoxRoteirista;
     @FXML
     private CheckBox checkBoxProdutora;
-    @FXML
-    private CheckBox checkBoxDistribuidora;
-    
-    private final boolean[] papeisSelecionados = new boolean[9];
-    private boolean BoxValorada = false;
+
     private String anoI;
     private String anoF;
     private int tipoRede; //Tipo 1 para Ator X Filme
     private int tipoLeitura; //Tipo 1 para ID e Tipo 2 para Nome
-    private String papeis = ""; // Papeis selecionados para query
-   
-    
-   
+    private String papeis; // Papeis selecionados para query
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     @FXML
     public void handleToggleGroupTipoRede() {
         RadioButton selectedRadioButton = (RadioButton) tipoRedeDoisModos.getSelectedToggle();
@@ -106,16 +98,6 @@ public class FXMLAnchorPaneMatrizDoisModosController implements Initializable {
     }
 
     @FXML
-    public void handleCheckBoxValorada() {
-
-        if (checkBoxValorada.isSelected()) {
-            BoxValorada = true;
-        } else {
-            BoxValorada = false;
-        }
-    }
-
-    @FXML
     public void handleTextFieldAnos() throws Exception {
         anoI = textFieldAnoInicio.getText();
         anoF = textFieldAnoFim.getText();
@@ -135,7 +117,8 @@ public class FXMLAnchorPaneMatrizDoisModosController implements Initializable {
 
     @FXML
     public void handleCheckBoxes() {
-       if (checkBoxAtor.isSelected()) {
+        papeis = "";
+        if (checkBoxAtor.isSelected()) {
             papeis += "'A'" + ",";
         }
         if (checkBoxProdExec.isSelected()) {
@@ -159,25 +142,22 @@ public class FXMLAnchorPaneMatrizDoisModosController implements Initializable {
         if (checkBoxProdutora.isSelected()) {
             papeis += "'P'" + ",";
         }
-        if (checkBoxDistribuidora.isSelected()) {
-            papeis += "'DT'" + ",";
+        if (papeis.endsWith(",")) {
+            papeis = papeis.substring(0, papeis.length() - 1);
         }
-        if(papeis.endsWith(",")){
-            papeis = papeis.substring (0, papeis.length() - 1);
-        }
-        if(papeis.equals("")){
-            papeis = "'A', 'PE', 'F','DA','E','R','D', 'P', 'DT'";
+        if (papeis.equals("")) {
+            papeis = "'A', 'PE', 'F','DA','E','R','D', 'P'";
         }
     }
-        
+
     @FXML
-    public void handleButtonGerarMatriz() throws IOException, SQLException, Exception{
+    public void handleButtonGerarMatriz() throws IOException, SQLException, Exception {
         handleToggleGroupTipoRede();
         handleToggleGroupTipoLeitura();
         handleCheckBoxes();
         handleTextFieldAnos();
-       GeraMatriz rede = new GeraMatriz("Planilha de Dois Modos Ator x Filme.csv");
-       rede.PreencheMatrizDoisModos(tipoLeitura, BoxValorada, papeis, anoI, anoF);
-    } 
+        Data data = new Data();
+        GeraMatriz rede = new GeraMatriz("/home/nanda/NetBeansProjects/GeradorDePlanilhas/Resultados/" + "2Modos"+ anoI + "-" + anoF + "-" + data.Data2String() + ".csv");
+        rede.PreencheMatrizDoisModos(tipoLeitura, papeis, anoI, anoF);
+    }
 }
-

@@ -32,7 +32,7 @@ public class GeraMatriz {
     ConsultasSQL query = new ConsultasSQL();
 
     public GeraMatriz(String nomeArquivo) throws IOException {
-        //nomeArquivo = "planilhaTESTE.csv";     
+
         planilha = new FileWriter(nomeArquivo);
     }
 
@@ -52,7 +52,7 @@ public class GeraMatriz {
         this.nomeArquivo = nomeArquivo;
     }
 
-    public void PreencheMatrizDoisModos(int tipoLeitura, boolean valorada,String papeis, String anoInicio, String anoFim) throws SQLException, IOException {
+    public void PreencheMatrizDoisModos(int tipoLeitura, String papeis, String anoInicio, String anoFim) throws SQLException, IOException {
         try {
 
             ResultSet resultadoAtor = query.ConsultaAtoresDoisModos(papeis, anoInicio, anoFim);

@@ -5,9 +5,8 @@
  */
 package geradordeplanilhas;
 
-import java.io.File;
+
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,7 +24,7 @@ public class GeradorDePlanilhas extends Application {
         
         Scene scene = new Scene(root);
         stage.setTitle("Análise de Redes: Cinematografia Brasileira");
-        
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

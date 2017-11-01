@@ -10,12 +10,12 @@
 
 <AnchorPane id="AnchorPane" fx:id="anchorPaneMatrizDoisModos" prefHeight="371.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="geradordeplanilhas.controller.FXMLAnchorPaneMatrizDoisModosController">
  <children>
-      <HBox alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="44.0" prefWidth="649.0">
+      <HBox alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="44.0" prefWidth="784.0">
          <children>
-            <Label text="REDE DE 2 MODOS" />
+            <Label prefHeight="15.0" prefWidth="140.0" text="Rede de 2 modos" />
          </children>
       </HBox>
-      <VBox layoutX="34.0" layoutY="56.0">
+      <VBox layoutX="35.0" layoutY="74.0">
          <children>
             <Label prefHeight="28.0" prefWidth="97.0" text="Tipo de Rede" />
             <Region prefHeight="13.0" prefWidth="127.0" />
@@ -25,21 +25,21 @@
                </toggleGroup></RadioButton>
          </children>
       </VBox>
-      <VBox layoutX="216.0" layoutY="61.0">
+      <VBox layoutX="217.0" layoutY="79.0">
          <children>
             <HBox />
-            <Label prefHeight="20.0" prefWidth="89.0" text="Leitura" />
-            <Region prefHeight="14.0" prefWidth="167.0" />
+            <Label prefHeight="20.0" prefWidth="114.0" text="Tipo de Leitura" />
+            <Region prefHeight="18.0" prefWidth="167.0" />
             <RadioButton fx:id="radioButtonID" mnemonicParsing="false" text="ID">
                <toggleGroup>
                   <ToggleGroup fx:id="tipoLeituraDoisModos" />
                </toggleGroup></RadioButton>
-            <Region prefHeight="13.0" prefWidth="167.0" />
+            <Region prefHeight="20.0" prefWidth="167.0" />
             <RadioButton fx:id="radioButtonNome" mnemonicParsing="false" text="Nome" toggleGroup="$tipoLeituraDoisModos" />
          </children>
       </VBox>
-      <Separator layoutX="25.0" layoutY="167.0" prefHeight="0.0" prefWidth="586.0" />
-      <VBox layoutX="34.0" layoutY="171.0">
+      <Separator layoutX="32.0" layoutY="184.0" prefHeight="0.0" prefWidth="724.0" />
+      <VBox layoutX="34.0" layoutY="205.0">
          <children>
             <Label prefHeight="22.0" prefWidth="91.0" text="Papeis" />
             <Region prefHeight="13.0" prefWidth="127.0" />
@@ -53,10 +53,10 @@
             <Region prefHeight="13.0" prefWidth="127.0" />
          </children>
       </VBox>
-      <VBox layoutX="216.0" layoutY="173.0" prefHeight="159.0" prefWidth="127.0">
+      <VBox layoutX="216.0" layoutY="204.0" prefHeight="162.0" prefWidth="127.0">
          <children>
-            <Region prefHeight="13.0" prefWidth="127.0" />
-            <Region prefHeight="19.0" prefWidth="108.0" />
+            <Region prefHeight="25.0" prefWidth="127.0" />
+            <Region prefHeight="10.0" prefWidth="127.0" />
             <CheckBox fx:id="checkBoxDiretor" mnemonicParsing="false" selected="true" text="Diretor" />
             <Region prefHeight="13.0" prefWidth="127.0" />
             <CheckBox fx:id="checkBoxRoteirista" mnemonicParsing="false" selected="true" text="Roteirista" />
@@ -67,7 +67,7 @@
 
          </children>
       </VBox>
-      <VBox layoutX="375.0" layoutY="175.0">
+      <VBox layoutX="409.0" layoutY="209.0">
          <children>
             <Label text="Ano" />
             <Region prefHeight="22.0" prefWidth="193.0" />
@@ -90,15 +90,10 @@
             </HBox>
          </children>
       </VBox>
-      <HBox alignment="CENTER" layoutX="495.0" layoutY="321.0" prefHeight="44.0" prefWidth="174.0">
+       <HBox alignment="CENTER" layoutX="619.0" layoutY="378.0" prefHeight="69.0" prefWidth="167.0">
          <children>
-            <Button fx:id="buttonGerarMatriz" mnemonicParsing="false" onAction="#handleButtonGerarMatriz" prefHeight="25.0" prefWidth="108.0" text="Gerar Matriz" />
+            <Button fx:id="buttonGerarMatriz" mnemonicParsing="false" onAction="#handleButtonGerarMatriz" prefHeight="25.0" prefWidth="139.0" text="Gerar Matriz" />
          </children>
       </HBox>
-      <VBox layoutX="375.0" layoutY="93.0">
-         <children>
-            <HBox />
-         </children>
-      </VBox>
    </children>
 </AnchorPane>

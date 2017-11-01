@@ -9,6 +9,7 @@ import geradordeplanilhas.entity.Filme;
 import geradordeplanilhas.model.sql.ConsultasSQL;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -73,8 +74,7 @@ public class FXMLAnchorPaneConsultaDadosFilmeController implements Initializable
 
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             System.out.println("Erro ao recuperar filme.");
         }
         

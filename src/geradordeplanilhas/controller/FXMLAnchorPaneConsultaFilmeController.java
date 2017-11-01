@@ -9,6 +9,7 @@ import geradordeplanilhas.entity.Atores;
 import geradordeplanilhas.model.sql.ConsultasSQL;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -67,8 +68,7 @@ public class FXMLAnchorPaneConsultaFilmeController implements Initializable {
 
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erro");
             alert.setHeaderText(null);

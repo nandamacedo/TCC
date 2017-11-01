@@ -13,18 +13,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -79,7 +73,7 @@ public class FXMLAnchorPaneEditarFilmeController implements Initializable {
     private ResultSet atores;
     private ResultSet dFilme;
     ConsultasSQL query = new ConsultasSQL();
-    List<Atores> listaAtores = new ArrayList<Atores>(10);
+    List<Atores> listaAtores = new ArrayList<>(10);
 
     /**
      * Initializes the controller class.
@@ -170,8 +164,7 @@ public class FXMLAnchorPaneEditarFilmeController implements Initializable {
                 alert.showAndWait();
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             System.out.println("Error ao recuperar campos");
         }
 
@@ -200,7 +193,6 @@ public class FXMLAnchorPaneEditarFilmeController implements Initializable {
             this.gDiretor.setText("");
             this.gProdutor.setText("");
         } catch (Exception e) {
-            e.printStackTrace();
             System.out.println("Erro ao limpar campos");
         }
 
@@ -383,7 +375,6 @@ public class FXMLAnchorPaneEditarFilmeController implements Initializable {
             alert.showAndWait();
             
         } catch (Exception e) {
-            e.printStackTrace();
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro");
             alert.setHeaderText(null);

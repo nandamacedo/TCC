@@ -5,13 +5,11 @@
  */
 package geradordeplanilhas.controller;
 
-import geradordeplanilhas.entity.Atores;
+
 import geradordeplanilhas.model.sql.ConsultasSQL;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

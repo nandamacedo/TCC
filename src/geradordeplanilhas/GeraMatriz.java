@@ -5,13 +5,10 @@
  */
 package geradordeplanilhas;
 
-import geradordeplanilhas.model.database.Database;
-import geradordeplanilhas.model.database.DatabaseFactory;
+
 import geradordeplanilhas.model.sql.ConsultasSQL;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,9 +23,10 @@ public class GeraMatriz {
     private final Connection connection = database.conectar();*/
     private FileWriter planilha;
     private String nomeArquivo;
-    private ArrayList<String> ListaAtores = new ArrayList<String>();
-    private ArrayList<String> ListaAtoresNomes = new ArrayList<String>();
-    private ArrayList<String> ListaFilmes = new ArrayList<String>();
+    private ArrayList<String> ListaAtores = new ArrayList<>();
+    private ArrayList<String> ListaAtoresIdPapel = new ArrayList<>();
+    private ArrayList<String> ListaAtoresNomes = new ArrayList<>();
+    private ArrayList<String> ListaFilmes = new ArrayList<>();
     ConsultasSQL query = new ConsultasSQL();
 
     public GeraMatriz(String nomeArquivo) throws IOException {
@@ -63,12 +61,14 @@ public class GeraMatriz {
                 while (resultadoAtor.next()) {
                     listaAtoresNomes += resultadoAtor.getString(1) + ";";
                     ListaAtores.add(resultadoAtor.getString(1));
+                    ListaAtoresIdPapel.add(resultadoAtor.getString(4));
                 }
             } else { // Leitura por Nome do Ator
 
                 while (resultadoAtor.next()) {
                     listaAtoresNomes += resultadoAtor.getString(2) + "-" + resultadoAtor.getString(3) + ";";;
                     ListaAtores.add(resultadoAtor.getString(1));
+                    ListaAtoresIdPapel.add(resultadoAtor.getString(4));
                 }
 
             }
@@ -88,8 +88,8 @@ public class GeraMatriz {
                 }
                 for (int i = 0; i < ListaAtores.size(); i++) {
                     String ator = ListaAtores.get(i);
-
-                    ResultSet verificaParticipação = query.VerificaAtorFilme(ator, filme);
+                    String idpapel = ListaAtoresIdPapel.get(i);
+                    ResultSet verificaParticipação = query.VerificaAtorFilme(ator, idpapel, filme);
                     verificaParticipação.next();
                     String valor = verificaParticipação.getString(1);
                     int numero = Integer.parseInt(valor);
@@ -118,13 +118,15 @@ public class GeraMatriz {
 
                 if (tipoLeitura == 1) { // Leitura por ID do Ator
                     while (resultado.next()) {
-                        listaAtoresNomes += resultado.getString(1) + ";";
+                        listaAtoresNomes += resultado.getString(1) +  "-" + resultado.getString(3) + ";";
                         ListaAtores.add(resultado.getString(1));
+                        ListaAtoresIdPapel.add(resultado.getString(4));
                     }
                 } else { // Leitura por Nome/Sigla do Ator/Papel
                     while (resultado.next()) {
                         listaAtoresNomes += resultado.getString(2) + "-" + resultado.getString(3) + ";";
                         ListaAtores.add(resultado.getString(1));
+                        ListaAtoresIdPapel.add(resultado.getString(4));
                     }
                 }
 
@@ -134,21 +136,24 @@ public class GeraMatriz {
 
                 while (resultadoA.next()) {
                     String resultAtor = resultadoA.getString(1);
+                    String resultAtorIdPapel = resultadoA.getString(4); // ID papel
                     String resultAtorNome = resultadoA.getString(2);
+                    String resultSigla = resultadoA.getString(3);
 
-                    if (tipoLeitura == 1) {
-                        planilha.write(resultAtor + ";");
-                    } else {
-                        planilha.write(resultAtorNome + ";");
+                    if (tipoLeitura == 1) { // Leitura por ID
+                        planilha.write(resultAtor + " - " + resultSigla + ";");
+                    } else { // Leitura por Nome
+                        planilha.write(resultAtorNome + " - " + resultSigla + ";");
                     }
 
                     for (int i = 0; i < ListaAtores.size(); i++) {
                         String ator = ListaAtores.get(i);
+                        String atorIdPapel = ListaAtoresIdPapel.get(i);
 
-                        if (resultAtor.equals(ator)) {
+                        if (resultAtor.equals(ator) && resultAtorIdPapel.equals(atorIdPapel)) {
                             planilha.write(0 + ";");
                         } else {
-                            ResultSet resultadoVerificaAtores = query.VerificaAtoresUmModo(resultAtor, ator);
+                            ResultSet resultadoVerificaAtores = query.VerificaAtoresUmModo(resultAtor, resultAtorIdPapel, ator, atorIdPapel, anoInicio, anoFim);
                             resultadoVerificaAtores.next();
                             String valor = resultadoVerificaAtores.getString(1);
                             int numero = Integer.parseInt(valor);
@@ -175,13 +180,16 @@ public class GeraMatriz {
 
                 if (tipoLeitura == 1) { // Leitura por ID do Filme
                     while (resultado.next()) {
-                        listaFilmesNomes += resultado.getString(1) + ";";
+                        listaFilmesNomes += resultado.getString(1) + "-" + resultado.getString(4) + ";";
                         ListaFilmes.add(resultado.getString(1));
+                        ListaAtoresIdPapel.add(resultado.getString(3));
                     }
                 } else { //Leitura por Nome do Filme
                     while (resultado.next()) {
-                        listaFilmesNomes += resultado.getString(2) + ";";
+                        listaFilmesNomes += resultado.getString(2)  + "-" + resultado.getString(4) + ";";
                         ListaFilmes.add(resultado.getString(1));
+                        ListaAtoresIdPapel.add(resultado.getString(3));
+
                     }
                 }
 
@@ -193,20 +201,23 @@ public class GeraMatriz {
                      
                     String resultFilme = resultadoA.getString(1);
                     String resultFilmeNome = resultadoA.getString(2);
+                    String resultFilmeIdPapel = resultadoA.getString(3);
+                    String resultSigla = resultadoA.getString(4);
 
                     if (tipoLeitura == 1) {
-                        planilha.write(resultFilme + ";");
+                        planilha.write(resultFilme + " - " + resultSigla + ";");
                     } else {
-                        planilha.write(resultFilmeNome + ";");
+                        planilha.write(resultFilmeNome + " - " + resultSigla + ";");
                     }
 
                     for (int i = 0; i < ListaFilmes.size(); i++) {
                         String filme = ListaFilmes.get(i);
+                        String filmeIdPapel = ListaAtoresIdPapel.get(i);
 
-                        if (resultFilme.equals(filme)) { // Zera a interação de um filme com ele mesmo
+                        if (resultFilme.equals(filme)&& resultFilmeIdPapel.equals(filmeIdPapel)) { // Zera a interação de um filme com ele mesmo
                             planilha.write(0 + ";");
                         } else {
-                            ResultSet resultadoVerificaFilmes = query.VerificaFilmesUmModo(resultFilme, filme);
+                            ResultSet resultadoVerificaFilmes = query.VerificaFilmesUmModo(resultFilme, resultFilmeIdPapel, filme, filmeIdPapel);
                             resultadoVerificaFilmes.next();
                             String valor = resultadoVerificaFilmes.getString(1);
                             int numero = Integer.parseInt(valor);

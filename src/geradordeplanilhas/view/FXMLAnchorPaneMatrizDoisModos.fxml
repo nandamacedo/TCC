@@ -45,11 +45,11 @@
             <Region prefHeight="13.0" prefWidth="127.0" />
             <CheckBox fx:id="checkBoxAtor" mnemonicParsing="false" selected="true" text="Ator" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxProdExec" mnemonicParsing="false" selected="true" text="Produçao Executiva" />
+            <CheckBox fx:id="checkBoxProdExec" mnemonicParsing="false" selected="true" text="Produção Executiva" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxDFoto" mnemonicParsing="false" selected="true" text="Direçao de Foto" />
+            <CheckBox fx:id="checkBoxDFoto" mnemonicParsing="false" selected="true" text="Direção de Foto" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxDArte" mnemonicParsing="false" selected="true" text="Direçao de Arte" />
+            <CheckBox fx:id="checkBoxDArte" mnemonicParsing="false" selected="true" text="Direção de Arte" />
             <Region prefHeight="13.0" prefWidth="127.0" />
          </children>
       </VBox>
@@ -63,7 +63,7 @@
             <Region prefHeight="13.0" prefWidth="127.0" />
             <CheckBox fx:id="checkBoxProdutora" mnemonicParsing="false" selected="true" text="Produtora" />
             <Region prefHeight="13.0" prefWidth="127.0" />
-            <CheckBox fx:id="checkBoxEdicao" mnemonicParsing="false" selected="true" text="Ediçao" />
+            <CheckBox fx:id="checkBoxEdicao" mnemonicParsing="false" selected="true" text="Edição" />
 
          </children>
       </VBox>
@@ -92,7 +92,7 @@
       </VBox>
        <HBox alignment="CENTER" layoutX="619.0" layoutY="378.0" prefHeight="69.0" prefWidth="167.0">
          <children>
-            <Button fx:id="buttonGerarMatriz" mnemonicParsing="false" onAction="#handleButtonGerarMatriz" prefHeight="25.0" prefWidth="139.0" text="Gerar Matriz" />
+            <Button fx:id="buttonGerarMatriz" mnemonicParsing="false" onAction="#handleButtonGerarMatriz" onMouseClicked="#handleButtonGerarMatriz" prefHeight="25.0" prefWidth="139.0" text="Gerar Matriz" />
          </children>
       </HBox>
    </children>

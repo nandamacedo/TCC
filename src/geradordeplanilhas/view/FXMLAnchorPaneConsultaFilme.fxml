@@ -20,14 +20,14 @@
             <Region prefHeight="44.0" prefWidth="16.0" />
             <TextField fx:id="textFieldNomeFilme" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="517.0" />
             <Region prefHeight="44.0" prefWidth="20.0" />
-            <Button fx:id="buttonConsultaFilme" mnemonicParsing="false" onAction="#handleButtonConsultaFilme" prefHeight="22.0" prefWidth="120.0" text="Pesquisar" />
+            <Button fx:id="buttonConsultaFilme" mnemonicParsing="false" onAction="#handleButtonConsultaFilme" onKeyPressed="#handleButtonConsultaFilme" onMouseClicked="#handleButtonConsultaFilme" prefHeight="22.0" prefWidth="120.0" text="Pesquisar" />
          </children>
       </HBox>
       <TableView fx:id="tableViewAtores" layoutX="36.0" layoutY="120.0" prefHeight="301.0" prefWidth="724.0">
         <columns>
-          <TableColumn fx:id="colAtor" prefWidth="265.0" text="Ator" />
-          <TableColumn fx:id="colPapel" prefWidth="254.0" text="Papel" />
-            <TableColumn fx:id="colSigla" prefWidth="66.0" text="Sigla" />
+          <TableColumn fx:id="colAtor" prefWidth="460.0" resizable="false" text="Ator" />
+          <TableColumn fx:id="colPapel" prefWidth="204.0" resizable="false" text="Papel" />
+            <TableColumn fx:id="colSigla" prefWidth="59.0" resizable="false" text="Sigla" />
         </columns>
       </TableView>
    </children>

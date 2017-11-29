@@ -11,6 +11,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -72,6 +77,7 @@ public class FXMLAnchorPaneMatrizUmModoController implements Initializable {
     private int tipoRede; //Tipo 1 para Ator e Tipo 2 para Filme
     private int tipoLeitura; //Tipo 1 para ID e Tipo 2 para Nome-Sigla
     private String papeis; // Papeis selecionados para query
+    private Service<Void> backgroundThread;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -166,24 +172,43 @@ public class FXMLAnchorPaneMatrizUmModoController implements Initializable {
     }
 
     @FXML
-    public void handleButtonGerarMatriz() throws IOException, SQLException, Exception {
-        handleToggleGroupTipoRede();
-        handleToggleGroupTipoLeitura();
-        handleCheckBoxes();
-        handleTextFieldAnos();
-        Data data = new Data();
+    public void handleButtonGerarMatriz(ActionEvent event) throws IOException, SQLException, Exception {
+        backgroundThread = new Service<Void>() {
+            @Override
+            protected Task<Void> createTask() {
+                return new Task<Void>() {
+                    @Override
+                    protected Void call() throws Exception {
+                        handleToggleGroupTipoRede();
+                        handleToggleGroupTipoLeitura();
+                        handleCheckBoxes();
+                        handleTextFieldAnos();
+                        Data data = new Data();
 
-        if (tipoRede == 1) {
+                        if (tipoRede == 1) {
 
-            GeraMatriz rede = new GeraMatriz("/home/nanda/NetBeansProjects/GeradorDePlanilhas/Resultados/" + "1ModoAtores" + anoI + "-" + anoF + "-" + data.Data2String() + ".csv");
-            rede.PreencheMatrizUmModo(tipoRede, tipoLeitura, BoxValorada, papeis, anoI, anoF);
+                            GeraMatriz rede = new GeraMatriz("/home/nanda/NetBeansProjects/GeradorDePlanilhas/Resultados/" + "1ModoAtores" + anoI + "-" + anoF + "-" + data.Data2String() + ".csv");
+                            rede.PreencheMatrizUmModo(tipoRede, tipoLeitura, BoxValorada, papeis, anoI, anoF);
 
-        } else {
+                        } else {
 
-            GeraMatriz rede = new GeraMatriz("/home/nanda/NetBeansProjects/GeradorDePlanilhas/Resultados/" + "1ModoFilmes" + anoI + "-" + anoF + "-" + data.Data2String() + ".csv");
-            rede.PreencheMatrizUmModo(tipoRede, tipoLeitura, BoxValorada, papeis, anoI, anoF);
+                            GeraMatriz rede = new GeraMatriz("/home/nanda/NetBeansProjects/GeradorDePlanilhas/Resultados/" + "1ModoFilmes" + anoI + "-" + anoF + "-" + data.Data2String() + ".csv");
+                            rede.PreencheMatrizUmModo(tipoRede, tipoLeitura, BoxValorada, papeis, anoI, anoF);
 
-        }
+                        }
+                        return null; //To change body of generated methods, choose Tools | Templates.
+                    }
+                };
+            }
+        };
+        backgroundThread.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent event) {
+                System.out.print("Done!");
+                
+            }
+        });
+        backgroundThread.restart();
 
     }
 

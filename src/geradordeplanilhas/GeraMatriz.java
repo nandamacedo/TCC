@@ -19,8 +19,7 @@ import java.util.ArrayList;
  */
 public class GeraMatriz {
 
-    /* private final Database database = DatabaseFactory.getDatabase("postgresql");
-    private final Connection connection = database.conectar();*/
+
     private FileWriter planilha;
     private String nomeArquivo;
     private ArrayList<String> ListaAtores = new ArrayList<>();
